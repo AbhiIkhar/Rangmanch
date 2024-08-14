@@ -11,6 +11,7 @@ const Login = () => {
       <Header />
       <div className="flex justify-center content-center max-w-full h-3/4 mx-5">
         <form
+          onSubmit={(e) => e.preventDefault()}
           className="flex flex-col p-5 content-center w-1/4 h-4/5 bg-black bg-opacity-80  m-auto
         shadow-lg shadow-gray-400"
         >
@@ -41,10 +42,16 @@ const Login = () => {
             {signUp ? "Sign Up" : "Sign In"}
           </button>
 
-          <p className="my-4 text-white" onClick={toggleSignUp}>
-            {signUp
-              ? "Already Registered?  Sign In"
-              : "New to Rangmanch? Sign Up Now"}
+          <p className="my-4 text-white">
+            <span>
+              {signUp ? "Already Registered? " : "New to Rangmanch? "}
+            </span>
+            <span
+              onClick={toggleSignUp}
+              className="hover:underline cursor-pointer"
+            >
+              {signUp ? "Sign In" : "Sign Up"}
+            </span>
           </p>
         </form>
       </div>
